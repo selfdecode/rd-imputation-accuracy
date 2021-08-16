@@ -74,8 +74,8 @@ Processing chunk: 1 Max rows per chunk: 10000
 2 Chunking time:  8.239876478910446e-06
 3 Calculation time:  0.16841873712837696
 4 Merging calculations per sample time:  0.0037479093298316
-Results per sample at: aric_intersectWGS_rpt-1_ancestry-5_phasing-eagle_seed-E_imputed-HRC_cad_190625.vcf.chr1_per_sample_results.txt
-Results per variant at: aric_intersectWGS_rpt-1_ancestry-5_phasing-eagle_seed-E_imputed-HRC_cad_190625.vcf.chr1_per_variant_results.txt
+Results per sample at: imputed.vcf.chr1_per_sample_results.txt
+Results per variant at: imputed.vcf.chr1_per_variant_results.txt
 Total run time (sec): 0.17389075085520744
 
 ```
