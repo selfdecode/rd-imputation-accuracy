@@ -311,5 +311,8 @@ fi
 
 python3 /home/ec2-user/adriano/git/imputation_accuracy_calculator/rebuild_metrics.py --s ${out_name}_per_sample_results.tsv.gz
 
-echo "Output-1    : ${out_name}_per_sample_results.tsv.gz"
+awk 'FNR>1 || NR==1' *_ImputationAccuracy.txt  > ${out_name}_per_sample_results.tsv
+rm *_ImputationAccuracy.txt
+rm ${out_name}_per_sample_results.tsv.gz
+echo "Output-1    : ${out_name}_per_sample_results.tsv"
 echo "Output-2    : ${out_name}_per_variant_results.tsv.gz"

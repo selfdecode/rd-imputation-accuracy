@@ -571,7 +571,7 @@ def process_lines(lines):
             chr, start_pos = line.split('\t')[0:2]
             first=False
 
-        pos_dosages_tmp, snp = extract_dose_from_line(line)
+        pos_dosages_tmp, snp = extract_dose_from_line(line,disable_DS)
         imputed_dosages[pos_dosages_tmp[0]] = pos_dosages_tmp[1:]
 
     end_pos = lines[-1].split('\t')[1]
@@ -589,7 +589,7 @@ def process_lines(lines):
         return [False]
 
     for line in wgs_lines:
-        pos_dosages_tmp, snp = extract_dose_from_line(line)
+        pos_dosages_tmp, snp = extract_dose_from_line(line,disable_DS)
         wgs_dosages[pos_dosages_tmp[0]] = pos_dosages_tmp[1:]
         snp_ids[pos_dosages_tmp[0]]=snp
     
@@ -1151,6 +1151,7 @@ def main():
     global WGS_file
     global IMPUTED_file
     global REF_file
+    global disable_DS
     global max_total_rows
     global n_max
     global n_min
@@ -1162,6 +1163,7 @@ def main():
     parser.add_argument('--ga', dest='ga', type=str, required=False, default="", nargs=1, help='(optional for low pass) path to genotype array file in vcf.gz format, with tbi')
     parser.add_argument('--wgs', dest='wgs', type=str, required=True, nargs=1, help='path to whole genome file in vcf.gz format, with tbi')
     parser.add_argument('--bwgs', dest='bwgs', type=str, required=False, default="", nargs=1, help='path to whole genome file in bcf.gz format, with cbi index')
+    parser.add_argument('--disable_DS', dest='disableDS', type=str, required=False, default="False", nargs=1, help='when DS is not present in the FORMAT')
     parser.add_argument('--bimputed', dest='bimputed', type=str, required=False, default="", nargs=1, help='path to imputed file in bcf.gz format, with cbi index')
     parser.add_argument('--imputed', dest='imputed', type=str, required=True, nargs=1, help='path to imputed file in vcf.gz format, with tbi')
     parser.add_argument('--ref', dest='ref', default="", type=str, required=False, nargs=1, help='optional, path to reference panel file in vcf.gz format, with tbi. Used for MAF calculation. WGS file will be used if no reference file is provided.')
@@ -1179,7 +1181,10 @@ def main():
         sys.exit(0)
 
     #print(args)
-    
+
+    if(args.disableDS!="False"):
+        disable_DS = True
+
     if(args.ga!=""):
         global GA_file
         GA_file = args.ga[0]
