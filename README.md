@@ -1,29 +1,5 @@
 # SelfDecode pipeline to analyze multiple phasing and imputation softwares simultaneously .
 
-Documentation and scripts provided for calculating imputation accuracy. Should work with any imputed VCF file that has GT or GT+DS format fields.
-
-## Requirements
-
-- bcftools: used to calculate MAFs
-- python v3: source code was implemented and tested on python 3.6
-  - `pandas`
-  - `numpy`
-  - `cyvcf2`
-
-## Required command line arguments are:
-
-The following inputs, in vcf.gz format, including its respective tabix .tbi file, are required to run.
-
-- imputed: imputation results
-- wgs: ground truth file, containing experimentally determined genotypes (i.e. Whole Genome Sequencing data)
-- bwgs: same wgs file but in BCF format to speed up the process and .csi index file associated.
-
-**NB PREREQUISITE:**
-- All files provided must be in vcf.gz format (compressed, tabixed). 
-- Alleles must match, in other words: no Swap, no flips, same build.
-- It is not necessary to provide allele frequencies, since the tool will calculate it internally using bcftools.
-- the tools works also if wgs data in BCF format are not provided, but will be slower.
-
 ## Usage:
 
 The help shows all the required arguments listed above, plus optional arguments.
@@ -76,6 +52,34 @@ Parameters:
 ```
 Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
 ```
+
+
+
+# Accuracy
+
+Documentation and scripts provided for calculating imputation accuracy. Should work with any imputed VCF file that has GT or GT+DS format fields.
+
+## Requirements
+
+- bcftools: used to calculate MAFs
+- python v3: source code was implemented and tested on python 3.6
+  - `pandas`
+  - `numpy`
+  - `cyvcf2`
+
+## Required command line arguments are:
+
+The following inputs, in vcf.gz format, including its respective tabix .tbi file, are required to run.
+
+- imputed: imputation results
+- wgs: ground truth file, containing experimentally determined genotypes (i.e. Whole Genome Sequencing data)
+- bwgs: same wgs file but in BCF format to speed up the process and .csi index file associated.
+
+**NB PREREQUISITE:**
+- All files provided must be in vcf.gz format (compressed, tabixed). 
+- Alleles must match, in other words: no Swap, no flips, same build.
+- It is not necessary to provide allele frequencies, since the tool will calculate it internally using bcftools.
+- the tools works also if wgs data in BCF format are not provided, but will be slower.
 
 ## Results:
 
