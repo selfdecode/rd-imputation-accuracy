@@ -47,6 +47,32 @@ Parameters:
 [memo] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
 ```
 
+## Before run the example - change path for softwares 
+```
+#SOFTWARE PATH (EDITABLE PART)
+time="/usr/bin/time -f"
+repo="/home/ec2-user/adriano/imputation/phase2/software"
+eagle2="${repo}/eagle2.4.1/Eagle_v2.4.1/eagle"
+shapeit4="${repo}/shapeit4/shapeit4-4.2.1/bin/shapeit4.2"
+beagle5="java -Xmx8g -jar ${repo}/beagle5.2/beagle.29May21.d6d.jar"
+bref3="java -Xmx8g -jar ${repo}/beagle5.2/bref3.29May21.d6d.jar"
+imp5Converter="${repo}/impute5/impute5_v1.1.5/imp5Converter_1.1.5_static"
+miniConverter="${repo}/Minimac3Executable/bin/Minimac3"
+impute5="${repo}/impute5/impute5_v1.1.5/impute5_1.1.5_static"
+minimac4="${repo}/minimac4/Minimac4/build/minimac4"
+simpy="/home/ec2-user/adriano/git/rd-imputation-accuracy/bin/Simpy.py"
+imputation_accuracy="/home/ec2-user/adriano/git/rd-imputation-accuracy/bin/imputation_accuracy.sh"
+#GENETIC RECOMBINATIO MAP PATH
+map_eagle2="${repo}/eagle2.4.1/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
+map_beagle5="/home/ec2-user/adriano/imputation/phase2/genetic_map/plink.chr${CHROMOSOME}.chr.GRCh38.map"
+map_shapeit4="/home/ec2-user/adriano/imputation/phase2/genetic_map/chr${CHROMOSOME}.b38.gmap.gz"
+map_impute5=$map_shapeit4
+#WGS PATH for accuracy
+wgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.vcf.gz"
+wgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.vcf.gz"
+bwgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.bcf.gz"
+bwgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.bcf.gz"
+```
 
 ## How to run example:
 ```
