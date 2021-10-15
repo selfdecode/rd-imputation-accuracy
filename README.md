@@ -50,8 +50,9 @@ Parameters:
 
 ## How to run example:
 ```
-Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
+./selphi.sh -i data/chr20.prefix.190samples.b38.noMulti.norm.nomiss.affy.vcf.gz -r reference/1000GP_filtered_chr20_HEAD200 -t 4 -o chip_Affymetrix -c 20
 ```
+reference panel inside ***reference*** folder in this example is just a portion of the entire one.
 
 # Accuracy
 
