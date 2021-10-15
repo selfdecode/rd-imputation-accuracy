@@ -1,11 +1,11 @@
-# SelfDecode pipeline to analyze multiple phasing and imputation softwares simultaneously .
+# SELPHI: SELfdecode PHasing Imputation pipeline to analyze multiple phasing and imputation softwares simultaneously .
 
 ## Usage:
 
 The help shows all the required arguments listed above, plus optional arguments.
 
 ```
-Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
 Use -h or --help to display help.
 
 author: SELFDECODE
@@ -42,31 +42,28 @@ Parameters:
       -bigref|--BIGREF
               use this option if you get memory allocate error during accuracy evaluation
 
-[base] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
-[skip] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
-[memo] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+[base] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+[skip] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
+[memo] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
 ```
 
 
 ## How to run example:
 ```
-Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
+Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
 ```
-
-
 
 # Accuracy
 
 Documentation and scripts provided for calculating imputation accuracy. Should work with any imputed VCF file that has GT or GT+DS format fields.
 
 ## Requirements
-
-- bcftools: used to calculate MAFs
-- python v3: source code was implemented and tested on python 3.6
-  - `pandas`
-  - `numpy`
-  - `cyvcf2`
-
+```
+bcftools
+pandas
+numpy
+cyvcf2
+```
 ## Required command line arguments are:
 
 The following inputs, in vcf.gz format, including its respective tabix .tbi file, are required to run.
@@ -74,74 +71,6 @@ The following inputs, in vcf.gz format, including its respective tabix .tbi file
 - imputed: imputation results
 - wgs: ground truth file, containing experimentally determined genotypes (i.e. Whole Genome Sequencing data)
 - bwgs: same wgs file but in BCF format to speed up the process and .csi index file associated.
-
-**NB PREREQUISITE:**
-- All files provided must be in vcf.gz format (compressed, tabixed). 
-- Alleles must match, in other words: no Swap, no flips, same build.
-- It is not necessary to provide allele frequencies, since the tool will calculate it internally using bcftools.
-- the tools works also if wgs data in BCF format are not provided, but will be slower.
-
-## Results:
-
-The results can be interpreted as follows.
-
-Metrics per variant:
-- REF_MAF: Reference Panel MAF (if reference panel is provided)
-- IMPUTED_MAF: Imputed MAF
-- WGS_MAF: Whole Genome MAF
-- F-score: macro F-score,
-- concordance_P0: accuracy ratio ,
-- IQS: imputation quality score
-- precision: precision
-- recall: recall
-- TP: true positives
-- TN: true negatives
-- FP: false positives
-- FN: false negatives
-- TP_ratio: true positives ratio
-- TN_ratio: true negatives ratio
-- FP_ratio: false positives ratio
-- FN_ratio: false negatives ratio
-- RMSE: root mean squared error
-
-Metrics per sample:
-- F-core: F-score per sample
-- concordance_P0: accuracy ratio
-- r2: r-squared
-- precision: precision
-- recall: recall
-- TP: true positives
-- TN: true negatives
-- FP: false positives
-- FN: false negatives
-- TP_ratio: true positives ratio
-- TN_ratio: true negatives ratio
-- FP_ratio: false positives ratio
-- FN_ratio: false negatives ratio
-- RMSE: root mean squared error
-
-
-After running this example, you can visualize the results for the test sample data in:
-- imputed_file_per_sample_results.txt
-- imputed_file_per_variant_results.txt
-
-For example:
-
-```
-head imputed.vcf_per_variant_results.txt
-
-position        SNP     IMPUTED_MAF     WGS_MAF F-score concordance_P0  IQS     r2      precision       recall  TP      TN      FP      FN TP_ratio TN_ratio        FP_ratio        FN_ratio        RMSE
-22:16050783     22:16050783_A_G 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.001
-22:16050922     22:16050922_T_G 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-22:16050984     22:16050984_C_G 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-22:16051269     22:16051269_G_T 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-22:16051477     22:16051477_C_A 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.006
-22:16052240     22:16052240_C_G 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-22:16052271     22:16052271_G_A 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.001
-22:16052428     22:16052428_G_A 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-22:16052639     22:16052639_C_T 0.0     0.0     1.0     1.0     0.0     0.0     1.0     1.0     100     100     0       0       1.0     1.00.0      0.0     0.0
-
-```
 
 ## How to run Accuracy evaluation with Big Input file to avoid Memory error:
 ```
