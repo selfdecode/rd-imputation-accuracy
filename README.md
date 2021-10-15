@@ -5,7 +5,7 @@
 The help shows all the required arguments listed above, plus optional arguments.
 
 ```
-Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
 Use -h or --help to display help.
 
 author: SELFDECODE
@@ -42,15 +42,15 @@ Parameters:
       -bigref|--BIGREF
               use this option if you get memory allocate error during accuracy evaluation
 
-[base] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
-[skip] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
-[memo] Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+[base] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+[skip] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
+[memo] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
 ```
 
 
 ## How to run example:
 ```
-Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
+Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>```
 ```
 
 # Accuracy
