@@ -6,7 +6,7 @@ contact email : adriano@selfdecode.com
 
 SelfDecode software to analyze multiple phasing and imputation softwares
 
-Parameters:
+Parameters required:
 "
       echo "      -h|--help
               show help"
@@ -20,6 +20,9 @@ Parameters:
               output prefix. No extension."
       echo "      -c|--chr
               chomosome to analyze allowed [1-22 X]. NO chr prefix."
+      echo"
+Optional Parameters:      
+"
       echo "      -ibeagle|--imp_beagle
               skip Beagle imputation"
       echo "      -pbeagle|--phase_beagle
