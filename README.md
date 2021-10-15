@@ -55,9 +55,7 @@ Usage: ./SELPHI.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <2
 
 # Accuracy
 
-Documentation and scripts provided for calculating imputation accuracy. Should work with any imputed VCF file that has GT or GT+DS format fields.
-
-## Requirements
+## Pre-requisite 
 ```
 bcftools
 pandas
@@ -72,7 +70,7 @@ The following inputs, in vcf.gz format, including its respective tabix .tbi file
 - wgs: ground truth file, containing experimentally determined genotypes (i.e. Whole Genome Sequencing data)
 - bwgs: same wgs file but in BCF format to speed up the process and .csi index file associated.
 
-## How to run Accuracy evaluation with Big Input file to avoid Memory error:
+## How to run Accuracy evaluation:
 ```
 ./imputation_accuracy.sh -i <imputed_phasing_imputation_CombinationSoftware.vcf.gz> -w WGS.vcf.gz -bw WGS.bcf.gz -t 4
 ```
