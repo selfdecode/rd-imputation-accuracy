@@ -1,6 +1,46 @@
 #!/bin/bash
 if [ -z "$*" ]; then 
-    echo "Usage: ...."
+    echo "
+author: SELFDECODE
+contact email : adriano@selfdecode.com
+
+SelfDecode software to analyze multiple phasing and imputation softwares
+
+Parameters:
+"
+      echo "      -h|--help
+              show help"
+      echo "      -i|--input
+              input file"
+      echo "      -r|--reference
+              full path reference file without extension."
+      echo "      -t|--threads
+              number of cpus to use."
+      echo "      -o|--output
+              output prefix. No extension."
+      echo "      -c|--chr
+              chomosome to analyze allowed [1-22 X]. NO chr prefix."
+      echo "      -ibeagle|--imp_beagle
+              skip Beagle imputation"
+      echo "      -pbeagle|--phase_beagle
+              skip Beagle haplotype estimation"
+      echo "      -impute5|--impute5
+              skip Impute imputation"
+      echo "      -shapeit|--shapeit
+              skip ShapeIT Phasing"
+      echo "      --minimac|--minimac
+              skip Minimac imputation"
+      echo "      -eagle|--eagle
+              skip Eagle phasing"
+      echo "      -bigref|--BIGREF
+              use this option if you get memory allocate error during accuracy evaluation"
+
+echo "
+[base] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+[skip] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
+[memo] Usage: ./PIscore.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+
+"
     exit 1
 fi
 
@@ -80,23 +120,47 @@ while [[ $# -gt 0 ]]; do
       ;;
     -h|--help) 
       echo "
+
 author: SELFDECODE
-email : adriano@selfdecode.com
+contact email : adriano@selfdecode.com
 
 SelfDecode software to analyze multiple phasing and imputation softwares
 
 Parameters:
 "
-      echo "-i|--input
-    input file"
-      echo "-r|--reference
-    full path without extension."
-      echo "-t|--threads
-    number of cpus to use."
-      echo "-o|--output
-    output prefix. No extension."
-      echo "-c|--chr
-    chomosome to analyze allowed [1-22 X]. NO chr prefix."
+      echo "      -h|--help
+              show help"
+      echo "      -i|--input
+              input file"
+      echo "      -r|--reference
+              full path reference file without extension."
+      echo "      -t|--threads
+              number of cpus to use."
+      echo "      -o|--output
+              output prefix. No extension."
+      echo "      -c|--chr
+              chomosome to analyze allowed [1-22 X]. NO chr prefix."
+      echo "      -ibeagle|--imp_beagle
+              skip Beagle imputation"
+      echo "      -pbeagle|--phase_beagle
+              skip Beagle haplotype estimation"
+      echo "      -impute5|--impute5
+              skip Impute imputation"
+      echo "      -shapeit|--shapeit
+              skip ShapeIT Phasing"
+      echo "      --minimac|--minimac
+              skip Minimac imputation"
+      echo "      -eagle|--eagle
+              skip Eagle phasing"
+      echo "      -bigref|--BIGREF
+              use this option if you get memory allocate error during accuracy evaluation"
+
+echo "
+[base] Usage: ./ImputePermute.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+[skip] Usage: ./ImputePermute.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
+[memo] Usage: ./ImputePermute.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+
+"
       exit 1 
       ;;
     *)    # unknown option
@@ -120,9 +184,10 @@ echo "IMPUTE5       : ${IMPUTE5}"
 echo "SHAPEIT       : ${SHAPEIT}"
 echo "MINIMAC       : ${MINIMAC}"
 echo "BIGREF        : ${BIGREF}"
-######################################################
+
 #######################################################
-#SOFTWARE PATH
+#######################################################
+#SOFTWARE PATH (EDITABLE PART)
 time="/usr/bin/time -f"
 eagle2="/home/ec2-user/adriano/imputation/phase2/software/eagle2.4.1/Eagle_v2.4.1/eagle"
 shapeit4="/home/ec2-user/adriano/imputation/phase2/software/shapeit4/shapeit4-4.2.1/bin/shapeit4.2"
@@ -132,29 +197,20 @@ imp5Converter="/home/ec2-user/adriano/imputation/phase2/software/impute5/impute5
 miniConverter="/home/ec2-user/adriano/imputation/phase2/software/Minimac3Executable/bin/Minimac3"
 impute5="/home/ec2-user/adriano/imputation/phase2/software/impute5/impute5_v1.1.5/impute5_1.1.5_static"
 minimac4="/home/ec2-user/adriano/imputation/phase2/software/minimac4/Minimac4/build/minimac4"
-glimpse="/home/ec2-user/adriano/imputation/phase2/software/glimpse/GLIMPSE"
-glimpse_phasing="${glimpse}/phase/bin/GLIMPSE_phase"
-glimpse_ligate="${glimpse}/ligate/bin/GLIMPSE_ligate"
-glimpse_sample="${glimpse}/sample/bin/GLIMPSE_sample"
-glimpse_chunk="${glimpse}/chunk/bin/GLIMPSE_chunk"
 simpy="/home/ec2-user/adriano/git/rd-imputation-accuracy/Simpy.py"
 imputation_accuracy="/home/ec2-user/adriano/git/rd-imputation-accuracy/imputation_accuracy.sh"
-#MAP PATH
+#GENETIC RECOMBINATIO MAP PATH
 map_eagle2="/home/ec2-user/adriano/imputation/phase2/software/eagle2.4.1/Eagle_v2.4.1/tables/genetic_map_hg38_withX.txt.gz"
 map_beagle5="/home/ec2-user/adriano/imputation/phase2/genetic_map/plink.chr${CHROMOSOME}.chr.GRCh38.map"
 map_shapeit4="/home/ec2-user/adriano/imputation/phase2/genetic_map/chr${CHROMOSOME}.b38.gmap.gz"
 map_impute5=$map_shapeit4
-map_glimpse="${glimpse}/maps/genetic_maps.b38/chr${CHROMOSOME}.b38.gmap.gz"
-
 #WGS PATH for accuracy
 wgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.vcf.gz"
 wgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.vcf.gz"
 bwgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.bcf.gz"
 bwgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.bcf.gz"
-# wgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_phase3/1000GP_filtered_chr20.subset190samples.vcf.gz"
-# wgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_phase3/1000GP_filtered_20.subset190samples.vcf.gz"
-# bwgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_phase3/1000GP_filtered_chr20.subset190samples.bcf.gz"
-# bwgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_phase3/1000GP_filtered_20.subset190samples.bcf.gz"
+#######################################################
+#######################################################
 
 if [ ! -e "${wgs_subset}" ]; then
   echo "CREATION OF WGS SUBSET IN VCF FORMAT"
@@ -173,14 +229,7 @@ fi
 if [ ! -e "${REFERENCE}.bcf.gz" ]; then
   bcftools view ${REFERENCE}.vcf.gz -Ov -o ${REFERENCE}.bcf.gz && bcftools index ${REFERENCE}.bcf.gz
 fi
-# if [ ! -e "${REFERENCE}_chunks.chr${CHROMOSOME}.txt" ]; then
-#   ${glimpse_chunk} --input ${REFERENCE}.bcf.gz \
-#     --region chr${CHROMOSOME} \
-#     --window-size 2000000 \
-#     --buffer-size 200000 \
-#     --thread ${THREADS} \
-#     --output ${REFERENCE}_chunks.chr${CHROMOSOME}.txt
-# fi
+
 
 ref_eagle2=${REFERENCE}.bcf.gz
 ref_shapeit4=${REFERENCE}.bcf.gz
@@ -251,19 +300,10 @@ output_beagle5_phase=${base_output}/phasing/beagle_phase/${OUTPUT}
 output_beagle5_imp=${base_output}/imputation/beagle_imp/${OUTPUT}
 output_impute5=${base_output}/imputation/impute5/${OUTPUT}
 output_minimac4=${base_output}/imputation/minimac/${OUTPUT}
-output_glimpse_phasing=${base_output}/imputation/glimpse/chunks/${OUTPUT}_chr${CHROMOSOME}
-output_glimpse_ligate=${base_output}/imputation/glimpse/${OUTPUT}_chr${CHROMOSOME}
 
 #######################################################
 #######################################################
 
-
-################ FUNCTION HERE BELOW ##################
-#######################################################
-
-
-################# FUNCTION HERE UP ####################
-#######################################################
 
 ###################### PHASING ########################
 #######################################################
