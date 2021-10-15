@@ -47,7 +47,7 @@ Parameters:
 [memo] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
 ```
 
-## Before run the example - change path for softwares 
+## Before running the example - change paths for software 
 ```
 #SOFTWARE PATH (EDITABLE PART)
 time="/usr/bin/time -f"
