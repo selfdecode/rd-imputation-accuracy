@@ -123,5 +123,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-
-[1] A. De Marino, A. Mahmoud, M. Bose, B. Novkovic, P. Yazdi. Which software should I use for phasing or imputation? A comparative analysis of current phasing and imputation software availables based on HMM https://docs.google.com/document/d/1i7rZzvK3ksIXI4wcfLpyqsfpHrlToC0buZx4d_-d6us/edit?pli=1#heading=h.af80tl7prv5v
+<Public paper here>
