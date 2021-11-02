@@ -123,4 +123,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-<Public paper here>
+Public paper here 
