@@ -123,4 +123,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-Public paper here 
+[Paper-biorxiv](https://www.biorxiv.org/content/biorxiv/early/2021/11/04/2021.11.04.467340.full.pdf)
