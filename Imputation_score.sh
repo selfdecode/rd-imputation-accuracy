@@ -37,8 +37,8 @@ Parameters:
 
 echo "
 [base] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
-[skip] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
-[memo] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+[skip] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle no -impute5 no
+[memo] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref yes
 
 "
     exit 1
