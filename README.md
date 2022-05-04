@@ -1,5 +1,13 @@
-# A comparative analysis of current phasing and imputation software
+# A comparative analysis of current Phasing and Imputation software
+
+![Licence](https://img.shields.io/apm/l/vim-mode?label=Licence&style=plastic)
+![Stars](https://img.shields.io/github/stars/selfdecode/rd-imputation-accuracy?label=Stars&style=plastic)
+![Contributors](https://img.shields.io/github/contributors/selfdecode/rd-imputation-accuracy?label=Contributors)
+
 ### Source Code
+
+![Path followed by the imputation score pipeline](images/pipeline_path.png)
+
 
 ## Usage:
 
@@ -77,9 +85,8 @@ bwgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20
 
 ## How to run example:
 ```
-./selphi.sh -i data/chr20.prefix.190samples.b38.noMulti.norm.nomiss.affy.vcf.gz -r reference/1000GP_filtered_chr20_HEAD200 -t 4 -o chip_Affymetrix -c 20
+./Imputation_score.sh -i data/HG00096_example_chip_data.vcf.gz -r reference/reference_panel_example_3samples.vcf.gz -t 4 -o chip_example -c 20
 ```
-reference panel inside ***reference*** folder in this example is just a portion of the file. Please provide a complete reference with tabix index to see a full example of how it works the software.
 
 # Accuracy
 
@@ -97,6 +104,8 @@ The following inputs, in vcf.gz format, including its respective tabix .tbi file
 - imputed: imputation results
 - wgs: ground truth file, containing experimentally determined genotypes (i.e. Whole Genome Sequencing data)
 - bwgs: same wgs file but in BCF format to speed up the process and .csi index file associated.
+
+***N.B. The Imputation_score.sh is designed to run automatically from phaing to accuracy evaluation, but in case you will need to run accuracy directly on some VCFs file you can use the following section.***
 
 ## How to run Accuracy evaluation:
 ```
@@ -124,4 +133,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-[Paper-biorxiv](https://www.biorxiv.org/content/biorxiv/early/2021/11/04/2021.11.04.467340.full.pdf)
+[Paper-biorxiv: Adriano De Marino, Abdallah Amr Mahmoud, Madhuchanda Bose, Karatuğ Ozan Bircan, Andrew Terpolovsky, Varuna Bamunusinghe, Umar Khan, Biljana Novković, Puya G. Yazdi](https://www.biorxiv.org/content/biorxiv/early/2021/11/04/2021.11.04.467340.full.pdf)
