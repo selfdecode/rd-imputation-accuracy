@@ -81,10 +81,8 @@ map_beagle5="/home/ec2-user/adriano/imputation/phase2/genetic_map/plink.chr${CHR
 map_shapeit4="/home/ec2-user/adriano/imputation/phase2/genetic_map/chr${CHROMOSOME}.b38.gmap.gz"
 map_impute5=$map_shapeit4
 #WGS PATH for accuracy
-wgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.vcf.gz"
-wgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.vcf.gz"
-bwgs_subset_chr="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/chr20.reference_panel.30x.hg38.190samples.bcf.gz"
-bwgs_subset="/home/ec2-user/adriano/imputation/phase2/reference_panel/ref_30x/20.reference_panel.30x.hg38.190samples.bcf.gz"
+wgs_subset="/home/ec2-user/adriano/imputation/phase2/WGS/HG00096_example_WGS_data.vcf.gz"
+bwgs_subset="/home/ec2-user/adriano/imputation/phase2/WGS/HG00096_example_WGS_data.bcf.gz"
 ```
 
 ## How to run example:
