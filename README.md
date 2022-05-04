@@ -2,8 +2,11 @@
 
 ![Licence](https://img.shields.io/apm/l/vim-mode?label=Licence&style=plastic)
 ![Stars](https://img.shields.io/github/stars/selfdecode/rd-imputation-accuracy?label=Stars&style=plastic)
-![Contributors](https://img.shields.io/github/contributors/selfdecode/rd-imputation-accuracy?label=Contributors)
-[![Selfdecode website](https://img.shields.io/website?label=Selfdecode&style=plastic&up_message=Personalised%20Medicine&url=https%3A%2F%2Fselfdecode.com)](https://www.selfdecode.com)
+![Contributors](https://img.shields.io/github/contributors/selfdecode/rd-imputation-accuracy?label=RepoContributors&style=plastic)
+[![Selfdecode website](https://img.shields.io/website?label=Selfdecode&style=plastic&up_message=Personalised%20Medicine&url=https%3A%2F%2Fselfdecode.com)](https://www.selfdecode.com)<br>
+[![Corresponding](https://img.shields.io/static/v1?label=Corresponding*&style=plastic&message=Puya%20Yazdi&color=blueviolet)](mailto:puya@selfdecode.com)
+
+
 
 ### Source Code
 
