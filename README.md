@@ -1,4 +1,5 @@
-# Source code from the paper: A comparative analysis of current phasing and imputation software
+# A comparative analysis of current phasing and imputation software
+### Source Code
 
 ## Usage:
 
