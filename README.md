@@ -1,11 +1,11 @@
-# SELPHI: SELfdecode PHasing Imputation pipeline to analyze multiple phasing and imputation softwares simultaneously .
+# Source code from the paper: A comparative analysis of current phasing and imputation software
 
 ## Usage:
 
 The help shows all the required arguments listed above, plus optional arguments.
 
 ```
-Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
 Use -h or --help to display help.
 
 author: SELFDECODE
@@ -42,9 +42,9 @@ Parameters:
       -bigref|--BIGREF
               use this option if you get memory allocate error during accuracy evaluation
 
-[base] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
-[skip] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle x -impute5 x
-[memo] Usage: ./selphi.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref x
+[base] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20>
+[skip] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -ibeagle no -impute5 no
+[memo] Usage: ./Imputation_score.sh -i <input.vcf.gz> -r <ref_file> -t <4> -o <output_name> -c <20> -bigref yes
 ```
 
 ## Before running the example - change paths for software 
