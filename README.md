@@ -135,4 +135,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-[Paper-biorxiv: Adriano De Marino, Abdallah Amr Mahmoud, Madhuchanda Bose, Karatuğ Ozan Bircan, Andrew Terpolovsky, Varuna Bamunusinghe, Umar Khan, Biljana Novković, Puya G. Yazdi](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260177&utm_source=ActiveCampaign&utm_medium=email&utm_content=SelfDecode+was+published+in+a+scientific+journal+%F0%9F%8E%89&utm_campaign=Research+Published+on+Genetic+Imputation+Email)
+[PlosOne: Adriano De Marino, Abdallah Amr Mahmoud, Madhuchanda Bose, Karatuğ Ozan Bircan, Andrew Terpolovsky, Varuna Bamunusinghe, Umar Khan, Biljana Novković, Puya G. Yazdi](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260177&utm_source=ActiveCampaign&utm_medium=email&utm_content=SelfDecode+was+published+in+a+scientific+journal+%F0%9F%8E%89&utm_campaign=Research+Published+on+Genetic+Imputation+Email)
