@@ -1,6 +1,5 @@
 # A comparative analysis of current Phasing and Imputation software
 
-![Licence](https://img.shields.io/apm/l/vim-mode?label=Licence&style=plastic)
 ![Stars](https://img.shields.io/github/stars/selfdecode/rd-imputation-accuracy?label=Stars&style=plastic)
 ![Contributors](https://img.shields.io/github/contributors/selfdecode/rd-imputation-accuracy?label=RepoContributors&style=plastic)
 [![Selfdecode website](https://img.shields.io/website?label=Selfdecode&style=plastic&up_message=Personalised%20Medicine&url=https%3A%2F%2Fselfdecode.com)](https://www.selfdecode.com)<br>
@@ -135,4 +134,4 @@ ${sample_name}_per_variant_results.tsv.gz"
 ```
 
 ## References:
-[Paper-biorxiv: Adriano De Marino, Abdallah Amr Mahmoud, Madhuchanda Bose, Karatuğ Ozan Bircan, Andrew Terpolovsky, Varuna Bamunusinghe, Umar Khan, Biljana Novković, Puya G. Yazdi](https://www.biorxiv.org/content/biorxiv/early/2021/11/04/2021.11.04.467340.full.pdf)
+[PLOSone: Adriano De Marino, Abdallah Amr Mahmoud, Madhuchanda Bose, Karatuğ Ozan Bircan, Andrew Terpolovsky, Varuna Bamunusinghe, Umar Khan, Biljana Novković, Puya G. Yazdi](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0260177)
